@@ -1,5 +1,6 @@
 <?php
-    session_start();
+session_start();
+include "servicos/servico_msg_sessao.php";
 ?>
 
 <!DOCTYPE html>
@@ -18,16 +19,15 @@
         <form action="script.php" method="post">
             <p>Seu Nome: <input type="text" name="nome" /> </p>
             <p>Sua Idade: <input type="text" name="idade" /></p>
-            <?php 
-                $msg_erro = isset($_SESSION['msg_erro']) ? $_SESSION['msg_erro'] : "";
-                $msg_sucesso = isset($_SESSION['msg_sucesso']) ? $_SESSION['msg_sucesso'] : "";
-                if(!empty($msg_erro)) {
-                    echo "<p>$msg_erro</p>";
-                } 
-                if(!empty($msg_sucesso)){
-                    echo "<p>$msg_sucesso</p>";
-                }
-            ?>
+            <div>
+                <?php
+                $msg_success = getMsgSuccess();
+                echo $msg_success;
+
+                $msg_error = getMsgError();
+                echo $msg_error;
+                ?>
+            </div>
             <p><input type="submit" value="Enviar"></p>
         </form>
     </div>
