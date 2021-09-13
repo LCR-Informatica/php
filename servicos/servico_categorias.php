@@ -14,7 +14,7 @@ function defineCategoriaCompetidor(string $nome, string $idade): ?string
     } elseif ($idade > 18) {
       $msg .= $msg2 . $categorias[2];
     } else {
-      $msg .= "não compete.";
+      $msg .= " não compete.";
     }
     setMsgSuccess($msg);
     return NULL;
