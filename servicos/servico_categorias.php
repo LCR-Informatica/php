@@ -5,6 +5,7 @@ function defineCategoriaCompetidor(string $nome, string $idade): ?string
   $categorias = ['infantil', 'adolecente', 'adulto'];
   if (validaNome($nome) and validaIdade($idade)) {
     removeMsgError();
+    removeMsgSuccess();
     $msg = "O nadador $nome";
     $msg2 = ", compete na categoria ";
     if ($idade > 5 and $idade < 13) {
@@ -19,6 +20,5 @@ function defineCategoriaCompetidor(string $nome, string $idade): ?string
     setMsgSuccess($msg);
     return NULL;
   }
-  removeMsgSuccess();
   return getMsgError();
 }
